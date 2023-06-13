@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Basic -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Mobile Metas -->
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<!-- Site Metas -->
+<title>Heart Failure Prediction</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="author" content="">
+
+
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+<!-- Site CSS -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<!-- Responsive CSS -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
+<!-- Custom CSS -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="{{ url_for('static', filename='js/modernizr.js') }}"></script> <!-- Modernizr -->
+<!-- UiKit CSS -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/uikit.min.css') }}">
+
+
+</head>
+
+<body id="page-top" class="politics_version">
+
+	<!-- LOADER -->
+	<div id="preloader">
+		<div id="main-ld">
+			<div id="loader"></div>
+		</div>
+	</div><!-- end loader -->
+	<!-- END LOADER -->
+
+	<!-- Navigation -->
+	<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+		<div class="container">
+
+			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+				data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+				aria-label="Toggle navigation">
+				Menu
+				<i class="fa fa-bars"></i>
+			</button>
+			<!-- <div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav text-uppercase ml-auto">
+					<li class="nav-item">
+						<a class="nav-link js-scroll-trigger active" href="#home">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link js-scroll-trigger" href="#about">Explanation</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link js-scroll-trigger" href="#portfolio">Chart</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link js-scroll-trigger" href="#team">Team</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link js-scroll-trigger" href="#contact">Prediction</a>
+					</li>
+				</ul>
+			</div> -->
+		</div>
+	</nav>
+
+	<!-- <section id="home" class="main-banner parallaxie"
+		style="background: url('static/uploads/FP1.png')">
+		<div class="heading">
+			</h3>
+		</div>
+	</section> -->
+
+	<div id="about" class="section wb" data-aos="zoom-in">
+		<div class="container">
+			<div class="row">
+				<div class="">
+					<div class="message-box">
+						<div class="section-title text-center">
+							<h3>Overview</h3>
+
+							<p style='text-align: justify;'>  
+								**Anggota Kelompok** <br>
+								1. Erika Taniya Devi Winckler (PYTN-KS14-020) <br>
+								2. ANAK AGUNG INTEN CAHYANI DEWI (PYTN-KS14-021) <br>
+								3. NI NYOMAN SEKAR WANDANI (PYTN-KS14-024) <br>
+								<br>
+								Penyakit kardiovaskular (CVDs) adalah penyebab kematian nomor 1 secara global, merenggut sekitar 17,9 juta nyawa setiap tahun, yang merupakan 31% dari semua kematian di seluruh dunia.
+								Gagal jantung adalah kejadian umum yang disebabkan oleh CVD dan kumpulan data ini berisi 12 fitur yang dapat digunakan untuk memprediksi kematian akibat gagal jantung.
+
+								Sebagian besar penyakit kardiovaskular dapat dicegah dengan mengatasi faktor risiko perilaku seperti penggunaan tembakau, pola makan yang tidak sehat dan obesitas, kurangnya aktivitas fisik, dan penggunaan alkohol yang berbahaya dengan menggunakan strategi populasi.
+
+								Orang dengan penyakit kardiovaskular atau yang memiliki risiko kardiovaskular tinggi (karena adanya satu atau lebih faktor risiko seperti hipertensi, diabetes, hiperlipidemia, atau penyakit yang sudah ada) memerlukan deteksi dan penanganan dini di mana model pembelajaran mesin dapat sangat membantu.
+								
+
+							<p style='text-align: justify;'>
+								Pada Final Project 3, Data diambil dari kaggle dengan link : https://www.kaggle.com/datasets/andrewmvd/heart-failure-clinical-data
+							</p>	
+						
+						</div><!-- end title -->
+
+						<div class="tab-content mt-3 " id="nav-tabContent">
+							<div class="tab-pane fade show active" id="nav-home" role="tabpanel"
+								aria-labelledby="nav-home-tab">
+								<h3 style="text-align:center;font-weight:bolder; " class="text-muted">Dataset</h3>
+								<p style='text-align: justify;'>
+									Data Description
+								</p>
+								<ul>
+									<i>1. age - umur pasien
+										2. anaemia - apakah ada pengurangan haemoglobin
+										3. creatinine_phosphokinase - level enzim CPK dalam mcg/L
+										4. diabetes - apakah pasien punya riwayat diabetes
+										5. ejection_fraction - persentase darah yang meninggalkan jantung dalam persentasi
+										di setiap kontraksi jantung
+										6. high_blood_pressure - apakah pasien punya darah tinggi
+										7. platelets - jumlah platelet di darah dalam kiloplatelets/mL
+										8. serum_creatinine - level serum creatinine di darah dalam mg/dL
+										9. serum_sodium - level serum sodium di darah dalam mEq/L
+										10. sex - apakah pasien pria atau wanita
+										11. smoking - apakah pasien merokok
+										12. time - waktu dalam hari untuk follow-up
+										13. DEATH_EVENT - apakah pasien sudah meninggal saat waktu follow-up
+									</i>
+								</ul>
+							</div>
+
+						</div>
+					</div><!-- end messagebox -->
+				</div><!-- end col -->
+			</div><!-- end row -->
+		</div><!-- end container -->
+	</div><!-- end section -->
+
+
+	<div id="portfolio" class="section lb" data-aos="fade-up">
+		<div class=" container">
+			<div class="section-title text-center">
+				<h3>Chart</h3>
+				<p>A chart can represent tabular numeric data, functions or some kinds of quality structure and provides
+					different info.
+				</p>
+			</div><!-- end title -->
+
+			<!-- <section id="home" class="main-banner parallaxie" -->
+			<!-- style="background: url('static/uploads/asu.png')">
+			<div class="heading">
+				</h3>
+			</div>
+			</section>
+			<div class="gallery-menu row">
+				<div class="col-md-12">
+
+				</div>
+			</div> -->
+
+
+
+			<div class="gallery-list row">
+				<!-- Gal_A Section -->
+				<!-- 1 -->
+				<div class="col-md-4 col-sm-6 gallery-grid gal_a">
+					<div>
+						<div class="uk-card-hover bg-transparent">
+							<!-- Animate png -->
+							<div class="uk-animation-toggle" tabindex="0">
+								<div>
+									<a class="uk-inline"
+										href="{{ url_for('static', filename='upload/visualisasi_kematian vs smooking.png') }}"
+										data-caption="Transport Name">
+										<img src="{{ url_for('static', filename='upload/visualisasi_kematian vs smooking.png') }}" alt=""
+											width="720" height="480">
+									</a>
+								</div>
+							</div>
+							<p style="text-align:center;font-family:'Segoe UI';font-weight: bolder;" class="text-dark">
+								Visualisasi Kematian VS Perokok</p>
+						</div>
+					</div>
+				</div>
+				<!-- 1 -->
+				
+				<!-- 2 -->
+				<div class="col-md-4 col-sm-6 gallery-grid gal_a">
+					<div>
+						<div class="uk-card-hover bg-transparent">
+							<!-- Animate png -->
+							<div class="uk-animation-toggle" tabindex="0">
+								<div>
+									<a class="uk-inline"
+										href="{{ url_for('static', filename='upload/visualisasi_kematian vs diabetes.png') }}"
+										data-caption="Transport Name">
+										<img src="{{ url_for('static', filename='upload/visualisasi_kematian vs diabetes.png') }}" alt=""
+											width="720" height="480">
+									</a>
+								</div>
+							</div>
+							<p style="text-align:center;font-family:'Segoe UI';font-weight: bolder;" class="text-dark">
+								Visualisasi Kematian VS Diabetes</p>
+						</div>
+					</div>
+				</div>
+				<!-- 2 -->
+
+				<!-- 4 -->
+				<div class="col-md-4 col-sm-6 gallery-grid gal_a">
+					<div>
+						<div class="uk-card-hover bg-transparent">
+							<!-- Animate png -->
+							<div class="uk-animation-toggle" tabindex="0">
+								<div>
+									<a class="uk-inline"
+										href="{{ url_for('static', filename='upload/visualisasi_piechart.png') }}"
+										data-caption="Route">
+										<img src="{{ url_for('static', filename='upload/visualisasi_piechart.png') }}" alt=""
+											width="720" height="480">
+									</a>
+								</div>
+							</div>
+							<p style="text-align:center;font-family:'Segoe UI';font-weight: bolder;" class="text-dark">
+								Visualisasi Piechart</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Gal_B Section -->
+				<!-- 1 -->
+				<!-- 2 -->
+				
+				<!-- 3 -->
+				<div class="col-md-4 col-sm-6 gallery-grid gal_b">
+					<div>
+						<div class="uk-card-hover bg-transparent">
+							
+							
+						</div>
+					</div>
+				</div>
+
+				
+		</div>
+	</div>
+	</div>
+
+ <!-- ======= Contact Section ======= -->
+ <section id="contact" class="contact">
+	<div class="container" data-aos="fade-up">
+
+	  <div class="section-title text-center">
+		<h2>Prediction Section</h2>
+		<p>In this Heart Failure Prediction section will be using method, namely <b>Extra Trees Classifier</b>.</p>
+	  </div>
+
+	  <div class="section-title text-center">
+
+		<div class="col-lg-5 d-flex align-items-stretch">
+		  <div class="info">
+			<div class="address">
+			  <h4>Hasil Prediksi</h4>
+			  <p>{{ prediction_text }}</p>
+			</div>
+			
+		  </div>
+
+		</div>
+
+		<div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+		  <form action="{{ url_for('predict')}}" method="post" class="php-email-form">
+			<div class="row">
+			  <div class="form-group">
+				<label for="age">Age (Range (40 - 95))</label>
+				<input type="number" class="form-control" name="age" id="usia"
+				  placeholder="Age" required min="40" max="95">
+			  </div>
+			  <div class="form-group">
+				<label for="anaemia">---|Anaemia</label>
+				<select class="form-select" aria-label="Default select example" name="anaemia">
+				  <option selected>Choose for Anemia section</option>
+				  <option value="0">The patient does not have anemia</option>
+				  <option value="1">Patient has anemia</option>
+				</select>
+			  </div>
+			  <div class="form-group">
+				<label for="creatinin_fosfokinase">---| Creatinin Fosfokinase (Range (23 - 7861))</label>
+				<input type="number" class="form-control" name="creatinine_phosphokinase" id="creatinin_fosfokinase"
+				  placeholder="Creatinin Fosfokinase" required min="23" max="7861">
+			  </div>
+			  <div class="form-group">
+				<label for="diabetes">---|Diabetes</label>
+				<select class="form-select" aria-label="Default select example" name="diabetes">
+				  <option selected>Choose for Diabetes section</option>
+				  <option value="0">Patient does not have diabetes</option>
+				  <option value="1">Patient has diabetes</option>
+				</select>
+			  </div>
+			  <div class="form-group">
+				<label for="ejection_fraction">Fraksi Ejeksi</label>
+				<select class="form-select" aria-label="Default select example" name="ejection_fraction">
+				  <option selected>Choose for Ejection Fraction section</option>
+				  <option value="14">14</option>
+				  <option value="15">15</option>
+				  <option value="17">17</option>
+				  <option value="20">20</option>
+				  <option value="25">25</option>
+				  <option value="30">30</option>
+				  <option value="35">35</option>
+				  <option value="38">38</option>
+				  <option value="40">40</option>
+				  <option value="45">45</option>
+				  <option value="50">50</option>
+				  <option value="55">55</option>
+				  <option value="60">60</option>
+				  <option value="62">62</option>
+				  <option value="65">65</option>
+				  <option value="70">70</option>
+				  <option value="80">80</option>
+				</select>
+			  </div>
+			  <div class="form-group">
+				<label for="high_blood_pressure">High Blood Pressure</label>
+				<select class="form-select" aria-label="Default select example" name="high_blood_pressure">
+				  <option selected>Choose for the High Blood Pressure section</option>
+				  <option value="0">The patient does not have high blood pressure</option>
+				  <option value="1">The patient has high blood pressure</option>
+				</select>
+			  </div>
+			  <div class="form-group">
+				<label for="platelets">Platelets(Range (25100 - 850000))</label>
+				<input type="number" class="form-control" name="platelets" id="platelets"
+				  placeholder="Platelets" required min="25100" max="850000">
+			  </div>
+			  <div class="form-group">
+				<label for="serum_creatinine">---|Kreatinin Serum (Range (0 - 10))</label>
+				<input type="number" class="form-control" name="kreatinin_serum" id="serum_creatinine"
+				  placeholder="Kreatinin Serum" required min="0" max="10">
+			  </div>
+			  <div class="form-group">
+				<label for="serum_sodium">Sodium Serum(Range (113 - 148))</label>
+				<input type="number" class="form-control" name="serum_sodium" id="serum_sodium"
+				  placeholder="Sodium Serum" required min="113" max="148">
+			  </div>
+			  <div class="form-group">
+				<label for="sex">---|Sex</label>
+				<select class="form-select" aria-label="Default select example" name="sex">
+				  <option selected>Choose for the Sex section</option>
+				  <option value="0">Perempuan</option>
+				  <option value="1">Laki-laki</option>
+				</select>
+			  </div>
+			  <div class="form-group">
+				<label for="smoking">Smoking</label>
+				<select class="form-select" aria-label="Default select example" name="smoking">
+				  <option selected>Choose for Smoking section</option>
+				  <option value="0">No</option>
+				  <option value="1">Yes</option>
+				</select>
+			  </div>
+			  <div class="form-group">
+				<label for="time">---|Time (Range (4 - 285))</label>
+				<input type="number" class="form-control" name="time" id="time"
+				  placeholder="Times " required min="4" max="285">
+			  </div>
+			  <div class="text-center"><button type="submit">Predict</button></div> <br>
+		  </form>
+		</div>
+
+	  </div>
+
+	</div>
+  </section><!-- End Contact Section -->
+
+
+<div class="copyrights">
+	<div class="container">
+		<div class="footer-distributed">
+			<div class="footer-center">
+				<p class="footer-company-name">Prediction Site &copy; 2023 | Designed By : Erika, Gung Inten, Sekar </p>
+			</div>
+		</div>
+	</div><!-- end container -->
+</div><!-- end copyrights -->
+
+	<a href="#" id="scroll-to-top" class="dmtop global-radius">
+		<div style="font-size: 20px;">Top</div>
+	</a>
+
+	<!-- ALL JS FILES -->
+
+	<script src="{{ url_for('static', filename='js/all.js') }}"></script>
+	<!-- Camera Slider  -->
+	<script src="{{ url_for('static', filename='js/jquery.mobile.customized.min.js ') }}"></script>
+	<script src="{{ url_for('static', filename='js/jquery.easing.1.3.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/parallaxie.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/headline.js') }}"></script>
+	<!-- Contact form JavaScript -->
+	<script src="{{ url_for('static', filename='js/jqBootstrapValidation.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/contact_me.js') }}"></script>
+	<!-- ALL PLUGINS -->
+	<script src="{{ url_for('static', filename='js/custom.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/jquery.vide.js') }}"></script>
+	<!-- Style JS -->
+	<script src="{{ url_for('static', filename='js/style.js') }}"></script>
+	<!-- UIKIT JS CDN -->
+	<script src="{{ url_for('static', filename='js/uikit.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/uikit-icons.min.js') }}"></script>
+	<script>
+		AOS.init();
+	</script>
+</body>
+
+</html>
